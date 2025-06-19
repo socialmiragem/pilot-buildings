@@ -79,7 +79,7 @@ const Hero = () => {
                                     <div className="wraper">
                                         <img src={image} alt="" className="img-fluid" />
                                     </div>
-                                    <div className="btn_request">
+                                    <div className="btn_request d-md-flex d-none">
                                         <Link to="/" className="inter mx-auto">Project Request</Link>
                                     </div>
                                 </div>
@@ -109,6 +109,9 @@ const Hero = () => {
                                                 <li key={i}>{item}</li>
                                             ))}
                                         </ol>
+                                        <div className="btn_request_2 d-md-none d-block">
+                                            <Link to="/" className="inter mx-auto">Project Request</Link>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

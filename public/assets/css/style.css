@@ -468,7 +468,7 @@ body {
         align-items: center;
         justify-content: center;
       }
-      .btn_request {
+      .btn_request_2 {
         & a {
           background-color: var(--color-orange-100);
           border: 0;
@@ -482,7 +482,7 @@ body {
           margin-top: 35px;
           letter-spacing: 3px;
           font-weight: 500;
-          display: none;
+        text-align: center;
         }
       }
       .desc {
