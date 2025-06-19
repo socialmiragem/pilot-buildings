@@ -45,6 +45,7 @@ public/
 - React Router DOM v7
 - CSS (media queries + scroll behavior)
 - JavaScript scroll event handling
+- GSAP
 
 ---
 
