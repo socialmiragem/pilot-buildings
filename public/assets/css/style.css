@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
 :root {
   --color-light-gray-100: #e3e3e3;
   --color-yellow-100: #f9ac35;
@@ -18,20 +19,24 @@
   --color-cream-100: #e4dbca;
   --color-dark-gray-100: #11181d;
 }
+
 body {
   font-family: "Inter", sans-serif;
 }
+
 .inter {
   font-family: "Inter", sans-serif;
 }
+
 .prime {
   font-family: "Courier Prime", monospace;
 }
+
 .filter:hover {
-  filter: brightness(0) saturate(100%) invert(69%) sepia(79%) saturate(1000%)
-    hue-rotate(345deg) brightness(97%) contrast(92%);
+  filter: brightness(0) saturate(100%) invert(69%) sepia(79%) saturate(1000%) hue-rotate(345deg) brightness(97%) contrast(92%);
   transition: 0.3ms all;
 }
+
 #navigation {
   position: fixed;
   background-color: var(--color-dark-blue-95);
@@ -39,15 +44,18 @@ body {
   height: 100%;
   padding: 5px;
   width: 50px;
+
   & .menu_icon {
     height: 24px;
     width: 24px;
     object-fit: contain;
+
     & img {
       width: 20px;
       height: 20px;
     }
   }
+
   & .dropdown_aside {
     background-color: var(--color-dark-blue-100);
     width: 300px;
@@ -59,6 +67,7 @@ body {
     flex-direction: column;
     justify-content: space-around;
     padding: 50px;
+
     & a {
       display: block;
       color: var(--color-light-gray-100);
@@ -67,6 +76,7 @@ body {
       font-family: "inter";
       margin: 20px;
       font-weight: 500;
+
       &:hover {
         color: var(--color-yellow-100);
         transition: 0.3s all;
@@ -79,16 +89,19 @@ body {
   position: relative;
   min-height: 100vh;
   overflow-y: hidden;
+
   & .wrap {
     width: 100%;
     object-fit: cover;
     aspect-ratio: 1/1;
+
     & img {
       height: 100%;
       width: 100%;
       object-fit: cover;
     }
   }
+
   & .content {
     position: absolute;
     z-index: 9999;
@@ -96,6 +109,7 @@ body {
     right: 0;
     padding: 15px;
     transform: translateY(-50%);
+
     & h1 {
       font-size: 130px;
       text-transform: uppercase;
@@ -105,6 +119,7 @@ body {
       letter-spacing: 5px;
       margin-bottom: 0;
     }
+
     & h2 {
       margin-bottom: 0;
       font-size: 100px;
@@ -114,6 +129,7 @@ body {
       text-align: end;
       letter-spacing: 5px;
     }
+
     .btn-primary {
       background-color: var(--color-dark-blue-100);
       border: 0;
@@ -124,17 +140,20 @@ body {
       border-radius: 50px;
       letter-spacing: 3px;
       font-weight: 500;
+
       &:focus-visible {
         outline: none;
         box-shadow: unset;
         background-color: var(--color-orange-100);
         transition: 0.3s all;
       }
+
       &:hover {
         background-color: var(--color-orange-100);
         transition: 0.3s all;
       }
     }
+
     & .secondary_content {
       & h2 {
         text-transform: capitalize;
@@ -145,12 +164,15 @@ body {
       }
     }
   }
+
   & .second_col {
     background: var(--color-linear);
+
     & h2 {
       color: var(--color-yellow-100);
       font-size: 75px;
     }
+
     & .btn_fabric {
       & a {
         background-color: var(--color-dark-blue-100);
@@ -162,6 +184,7 @@ body {
         cursor: pointer;
       }
     }
+
     & .btn_metal {
       & a {
         background-color: var(--color-gray-blue-100);
@@ -173,6 +196,7 @@ body {
         cursor: pointer;
       }
     }
+
     & .wraper {
       text-align: center;
       height: 220px;
@@ -183,6 +207,7 @@ body {
       align-items: center;
       justify-content: center;
     }
+
     .btn_request {
       & a {
         background-color: var(--color-orange-100);
@@ -197,25 +222,30 @@ body {
         margin-top: 35px;
         letter-spacing: 3px;
         font-weight: 500;
+
         &:focus-visible {
           outline: none;
           box-shadow: unset;
           background-color: var(--color-orange-100);
           transition: 0.3s all;
         }
+
         &:hover {
           background-color: var(--color-orange-100);
           transition: 0.3s all;
         }
       }
     }
+
     .desc {
       margin-top: 30px;
+
       & h2 {
         color: var(--color-light-gray-100);
         font-size: 40px;
         opacity: 50%;
       }
+
       & .form-select {
         background-color: transparent;
         color: var(--color-light-gray-100);
@@ -224,26 +254,31 @@ body {
         border-radius: 0px;
         border-color: var(--color-light-gray-100) !important;
         margin-top: 30px;
+
         &:focus-visible {
           box-shadow: unset !important;
           outline: none !important;
         }
+
         & option {
           background-color: #002235;
         }
       }
+
       & p {
         color: var(--color-light-gray-100);
         margin-top: 30px;
         font-size: 18px;
         opacity: 75%;
       }
+
       & h6 {
         color: var(--color-light-gray-100);
         margin-top: 30px;
         font-size: 18px;
         opacity: 100%;
       }
+
       li {
         color: var(--color-light-gray-100);
         margin-top: 5px;
@@ -257,33 +292,86 @@ body {
 .horizontal-scroll-wrapper {
   display: block;
 }
+
+.items-list {
+  position: absolute;
+  right: 20px;
+  top: 0;
+  margin: 10px;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-right: 1px solid var(--color-yellow-100);
+    width: fit-content;
+    /* padding-right: 10px; */
+    color: var(--color-gray-blue-100);
+
+    li {
+      position: relative;
+      text-align: right;
+      padding-right: 15px;
+      font-size: 14px;
+      cursor: pointer;
+
+      &::after {
+        content: '🛢';
+        position: absolute;
+        right: 6.5px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0px;
+        font-size: 14px;
+        color: var(--color-yellow-100);
+        opacity: 0.5;
+        transition: .3s;
+      }
+
+      &.active {
+        color: var(--color-yellow-100);
+
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
 @media (max-width: 1366px) {
   #hero {
     & .content {
       & h1 {
         font-size: 100px;
       }
+
       & h2 {
         font-size: 80px;
       }
+
       & .btn-primary {
         font-size: 16px;
       }
     }
+
     & .second_col {
       & h2 {
         font-size: 50px;
       }
+
       & .btn_request {
         & a {
           padding: 12px 20px;
           font-weight: 500;
         }
       }
+
       & .desc {
         & h2 {
           font-size: 30px;
         }
+
         & .form-select {
           background-color: transparent;
           color: var(--color-light-gray-100);
@@ -293,18 +381,21 @@ body {
           border-color: var(--color-light-gray-100) !important;
           margin-top: 30px;
         }
+
         & p {
           color: var(--color-light-gray-100);
           margin-top: 30px;
           font-size: 14px;
           opacity: 75%;
         }
+
         & h6 {
           color: var(--color-light-gray-100);
           margin-top: 30px;
           font-size: 15px;
           opacity: 100%;
         }
+
         & li {
           color: var(--color-light-gray-100);
           margin-top: 5px;
@@ -312,6 +403,7 @@ body {
           opacity: 75%;
         }
       }
+
       & .wraper {
         text-align: center;
         height: 177px;
@@ -344,24 +436,30 @@ body {
     overflow-x: hidden;
   }
 }
+
 @media (max-width: 1024px) {
   #hero {
     overflow-y: unset;
+
     & .col-md-6 {
       width: 100%;
       min-height: 100vh;
     }
   }
+
   #navigation {
     position: absolute;
   }
 }
+
 @media (max-width: 500px) {
   #navigation {
     background-color: transparent;
+
     & .menu_icon {
       margin: 8px 0px;
     }
+
     & .nav_container {
       position: fixed;
       background-color: var(--color-dark-blue-95);
@@ -386,27 +484,32 @@ body {
       justify-content: space-around;
       padding: 50px;
       z-index: 1;
+
       & a {
         font-size: 22px;
         margin: 20px;
       }
+
       & .links {
         width: fit-content;
         margin: 0 auto;
       }
     }
   }
+
   #hero {
     & .wrap {
       width: 100%;
       object-fit: cover;
       aspect-ratio: 1/1;
+
       & img {
         height: 100%;
         width: 100%;
         object-fit: cover;
       }
     }
+
     & .content {
       position: absolute;
       z-index: 9;
@@ -414,20 +517,24 @@ body {
       right: 0;
       padding: 15px;
       transform: translateY(-50%);
+
       & h1 {
         font-size: 65px;
         letter-spacing: 5px;
         margin-bottom: 0;
       }
+
       & h2 {
         margin-bottom: 0;
         font-size: 50px;
       }
+
       .btn-primary {
         padding: 12px 30px;
         font-size: 14px;
         margin: 50px 0px;
       }
+
       & .secondary_content {
         & h2 {
           text-transform: capitalize;
@@ -439,25 +546,30 @@ body {
         }
       }
     }
+
     & .second_col {
       padding: 50px 0px;
+
       & h2 {
         color: var(--color-yellow-100);
         font-size: 35px;
         font-weight: 600;
       }
+
       & .btn_fabric {
         & a {
           padding: 10px 40px;
           font-size: 15px;
         }
       }
+
       & .btn_metal {
         & a {
           padding: 10px 40px;
           font-size: 15px;
         }
       }
+
       & .wraper {
         text-align: center;
         height: 220px;
@@ -468,6 +580,7 @@ body {
         align-items: center;
         justify-content: center;
       }
+
       .btn_request_2 {
         & a {
           background-color: var(--color-orange-100);
@@ -482,17 +595,20 @@ body {
           margin-top: 35px;
           letter-spacing: 3px;
           font-weight: 500;
-        text-align: center;
+          text-align: center;
         }
       }
+
       .desc {
         margin-top: 30px;
+
         & h2 {
           color: var(--color-light-gray-100);
           font-size: 30px;
           opacity: 100%;
           font-weight: 500;
         }
+
         & .form-select {
           background-color: transparent;
           color: var(--color-light-gray-100);
@@ -501,26 +617,31 @@ body {
           border-radius: 0px;
           border-color: var(--color-light-gray-100) !important;
           margin-top: 20px;
+
           &:focus-visible {
             box-shadow: unset !important;
             outline: none !important;
           }
+
           & option {
             background-color: #002235;
           }
         }
+
         & p {
           color: var(--color-light-gray-100);
           margin-top: 30px;
           font-size: 18px;
           opacity: 75%;
         }
+
         & h6 {
           color: var(--color-light-gray-100);
           margin-top: 30px;
           font-size: 18px;
           opacity: 100%;
         }
+
         li {
           color: var(--color-light-gray-100);
           margin-top: 5px;

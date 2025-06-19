@@ -61,6 +61,12 @@ const Hero = () => {
                     </div>
                     <div className="col-md-6 second_col d-flex align-items-center flex-column justify-content-center">
                         <div className="px-5 container">
+                            <div className="items-list">
+                                <ul className="prime">
+                                    <li className={`${selectedType == "fabric" ? 'active' : ''}`} onClick={(e) => { e.preventDefault(); handleTypeChange("fabric"); }}>Fabric</li>
+                                    <li className={`${selectedType == "metal" ? 'active' : ''}`} onClick={(e) => { e.preventDefault(); handleTypeChange("metal"); }}>Metal 1</li>
+                                </ul>
+                            </div>
                             <h2 className="inter">Building Types</h2>
                             <div className="d-flex gap-3 mt-4">
                                 <div className="btn_fabric">
