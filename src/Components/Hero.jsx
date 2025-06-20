@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import VerticalScrollIndicator from "./VerticalScrollIndicator";
 
-const Hero = () => {
+const Hero = ({ currentSection, scrollToSection }) => {
     const [selectedType, setSelectedType] = useState("fabric");
     const [fade, setFade] = useState(false);
 
@@ -59,15 +60,13 @@ const Hero = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-6 second_col d-flex align-items-center flex-column justify-content-center">
+                    <div className="col-md-6 second_col d-flex align-items-center flex-column justify-content-center position-relative">
                         <div className="px-5 container">
-                            <div className="items-list">
-                                <ul className="prime">
-                                    <li className={`${selectedType == "fabric" ? 'active' : ''}`} onClick={(e) => { e.preventDefault(); handleTypeChange("fabric"); }}>Fabric</li>
-                                    <li className={`${selectedType == "metal" ? 'active' : ''}`} onClick={(e) => { e.preventDefault(); handleTypeChange("metal"); }}>Metal 1</li>
-                                </ul>
+                            <div className="aboveMobile">
+                                <VerticalScrollIndicator current={currentSection} scrollTo={scrollToSection} />
                             </div>
-                            <h2 className="inter">Building Types</h2>
+
+                            <h2 className="inter fw-semibold">Building Types</h2>
                             <div className="d-flex gap-3 mt-4">
                                 <div className="btn_fabric">
                                     <Link to="" className="fabric" onClick={(e) => { e.preventDefault(); handleTypeChange("fabric"); }}>
@@ -87,6 +86,9 @@ const Hero = () => {
                                     </div>
                                     <div className="btn_request d-md-flex d-none">
                                         <Link to="/" className="inter mx-auto">Project Request</Link>
+                                    </div>
+                                    <div className="Mobile d-block d-sm-none">
+                                        <VerticalScrollIndicator current={currentSection} scrollTo={scrollToSection} />
                                     </div>
                                 </div>
                                 <div className="col-md-7 ps-3">
@@ -115,7 +117,7 @@ const Hero = () => {
                                                 <li key={i}>{item}</li>
                                             ))}
                                         </ol>
-                                        <div className="btn_request_2 d-md-none d-block">
+                                        <div className="btn_request_2">
                                             <Link to="/" className="inter mx-auto">Project Request</Link>
                                         </div>
                                     </div>
