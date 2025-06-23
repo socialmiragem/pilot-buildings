@@ -37,13 +37,13 @@ body {
     hue-rotate(345deg) brightness(97%) contrast(92%);
   transition: 0.3ms all;
 }
-.aboveTab{
+.aboveTab {
   display: block;
 }
-.aboveMobile{
+.aboveMobile {
   display: none;
 }
-.Mobile{
+.Mobile {
   display: none;
 }
 #navigation {
@@ -506,6 +506,23 @@ body {
       width: 100%;
       min-height: 100vh;
     }
+    .content {
+      & h1 {
+        font-size: 80px;
+      }
+      & h2 {
+        font-size: 65px;
+      }
+      & .btn-primary {
+        font-size: 14px;
+        padding: 12px 35px;
+      }
+      & .secondary_content {
+        & h2 {
+          font-size: 40px;
+        }
+      }
+    }
   }
 
   #navigation {
@@ -514,9 +531,9 @@ body {
   .aboveTab {
     display: none;
   }
-  .aboveMobile{
-  display: block;
-}
+  .aboveMobile {
+    display: block;
+  }
   .second_col {
     padding: 50px 0px;
     .col-md-5 {
@@ -529,20 +546,25 @@ body {
         display: none !important;
       }
     }
-    .col-md-7{
-      width: 100%;
-    }
   }
-  .aboveMobile {
-    .items-list {
-      position: absolute !important;
-      right: 50px;
-      top: 15%;
-      margin: 10px;
-      z-index: 99;
-      li {
-        color: var(--color-yellow-100);
-      }
+  .col-md-7 {
+    width: 100%;
+  }
+}
+.btn_request_2 {
+  & a {
+    display: inline-block !important;
+  }
+}
+.aboveMobile {
+  .items-list {
+    position: absolute !important;
+    right: 50px;
+    top: 15%;
+    margin: 10px;
+    z-index: 99;
+    li {
+      color: var(--color-yellow-100);
     }
   }
 }
@@ -746,17 +768,20 @@ body {
       }
     }
   }
-  .aboveMobile{
+  .aboveMobile {
     display: none !important;
   }
-  .Mobile{display: block ; width: 100%;}
-  .form-select{
+  .Mobile {
+    display: block;
+    width: 100%;
+  }
+  .form-select {
     background-color: transparent;
     color: var(--color-yellow-100);
     width: 75%;
     border-color: var(--color-yellow-100);
     border-radius: 0px;
-    & option{
+    & option {
       background-color: var(--color-dark-blue-100) !important;
       color: var(--color-white-100);
     }
