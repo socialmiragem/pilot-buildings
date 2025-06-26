@@ -1,56 +1,101 @@
-import React, { useState, useRef, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useRef, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faXmark, faPhone } from '@fortawesome/free-solid-svg-icons';
+import '@fortawesome/fontawesome-svg-core/styles.css';
 
 const Navigation = () => {
-    const [isOpen, setIsOpen] = useState(false)
-    const dropdownRef = useRef(null)
+    const [isOpen, setIsOpen] = useState(false);
+    const dropdownRef = useRef(null);
+    const containerRef = useRef(null);
+    const location = useLocation();
 
     const toggleMenu = () => {
-        setIsOpen(prev => !prev)
-    }
+        setIsOpen(prev => !prev);
+    };
 
+    const closeMenu = () => setIsOpen(false);
+
+    // Handle outside click
     useEffect(() => {
-        const el = dropdownRef.current
-        if (el) {
-            if (isOpen) {
-                el.style.maxHeight = "100%"
-                el.style.opacity = 1
-                el.style.transform = 'translateY(0)'
-                el.style.pointerEvents = 'auto'
-            } else {
-                el.style.maxHeight = '0px'
-                el.style.opacity = 0
-                el.style.transform = 'translateY(-10px)'
-                el.style.pointerEvents = 'none'
+        const handleClickOutside = (event) => {
+            if (
+                containerRef.current &&
+                !containerRef.current.contains(event.target) &&
+                dropdownRef.current &&
+                !dropdownRef.current.contains(event.target)
+            ) {
+                closeMenu();
             }
+        };
+
+        if (isOpen) {
+            document.addEventListener('mousedown', handleClickOutside);
+        } else {
+            document.removeEventListener('mousedown', handleClickOutside);
         }
-    }, [isOpen])
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [isOpen]);
+
+    // Animate dropdown open/close
+    useEffect(() => {
+        const el = dropdownRef.current;
+        if (el) {
+            el.style.maxHeight = isOpen ? '100%' : '0px';
+            el.style.opacity = isOpen ? 1 : 0;
+            el.style.transform = isOpen ? 'translateY(0)' : 'translateY(-10px)';
+            el.style.pointerEvents = isOpen ? 'auto' : 'none';
+        }
+    }, [isOpen]);
+
+    const isActive = (path) => location.pathname === path ? 'active' : '';
 
     return (
-        <div id="navigation">
+        <nav id="navigation" aria-label="Main Navigation" ref={containerRef} className={isOpen ? 'active-navigation' : ''}>
             <div className='align-items-stretch d-flex flex-column h-100 justify-content-md-between nav_container'>
-                <div className='d-flex flex-column align-items-center'>
-                    <Link><img src="./assets/images/icons/Group1156.svg" alt="" className='img-fluid mb-3' /></Link>
-                    <button onClick={toggleMenu} className='border-0 bg-transparent p-0 menu_icon'>
-                        <img
-                            src={isOpen ? "./assets/images/icons/cross.png" : "./assets/images/icons/menu.png"}
-                            alt="menu"
-                            className='img-fluid mb-3'
-                            id="menu"
-                        />
+                <div className='d-flex flex-column align-items-center pt-md-3 pt-2'>
+                    <Link to="/" aria-label="Home">
+                        <img src="./assets/images/icons/logo.svg" alt="Logo" className='img-fluid mb-3' />
+                    </Link>
+
+                    <button
+                        onClick={toggleMenu}
+                        className='border-0 bg-transparent p-0 menu_icon'
+                        aria-label={isOpen ? 'Close menu' : 'Open menu'}
+                        aria-expanded={isOpen}
+                    >
+                        <span className='text-light-grey-48'>
+                            <FontAwesomeIcon
+                                icon={isOpen ? faXmark : faBars}
+                                className="fs-4 mb-3 text-light-gray-48"
+                            />
+                        </span>
                     </button>
                 </div>
+
                 <div className='d-flex flex-column align-items-center mobile_menu mt-md-0 mt-4'>
-                    <Link><img src="./assets/images/icons/Maskgroup.svg" alt="" className='img-fluid mb-3 d-none d-md-block' /></Link>
-                    <Link><img src="./assets/images/icons/image53.svg" alt="" className='img-fluid mb-3 d-none d-md-block' /></Link>
-                    <Link><img src="./assets/images/icons/image57.svg" alt="" className='img-fluid mb-3 d-none d-md-block' /></Link>
-                    <Link><img src="./assets/images/icons/phone.svg" alt="" className='img-fluid mb-3 filter' /></Link>
+                    <Link to="/" aria-label="Chief">
+                        <img src="./assets/images/icons/chief.svg" alt="Chief" className='img-fluid mb-3 d-none d-md-block' />
+                    </Link>
+                    <Link to="/" aria-label="Britespan">
+                        <img src="./assets/images/icons/britespan.svg" alt="Britespan" className='img-fluid mb-3 d-none d-md-block' />
+                    </Link>
+                    <Link to="/" aria-label="CBC">
+                        <img src="./assets/images/icons/cbc.svg" alt="CBC" className='img-fluid mb-3 d-none d-md-block' />
+                    </Link>
+                    <Link to="tel:1234567890" aria-label="Call Us">
+                        <FontAwesomeIcon icon={faPhone} className='mb-3 text-light-gray-48' />
+                    </Link>
                 </div>
             </div>
 
-            <div
+            <nav
                 ref={dropdownRef}
-                className="dropdown_aside"
+                className={`dropdown_aside ${isOpen ? 'active-navigation' : ''}`}
+                aria-label="Dropdown Navigation"
                 style={{
                     maxHeight: '0px',
                     overflow: 'hidden',
@@ -60,21 +105,21 @@ const Navigation = () => {
                     pointerEvents: 'none'
                 }}
             >
-                <div className='links'>
-                    <Link to="">Building Types</Link>
-                    <Link to="">Process</Link>
-                    <Link to="">Gallery</Link>
-                    <Link to="">Contact Us</Link>
-                </div>
-                <div className='links'>
-                    <Link to="">Advantages</Link>
-                    <Link to="">Services</Link>
-                    <Link to="">About Us</Link>
-                    <Link to="" className='text-uppercase'>Your Order</Link>
-                </div>
-            </div>
-        </div>
-    )
-}
+                <ul className='links'>
+                    <li><Link to="/building-types" className={isActive("/building-types")}>Building Types</Link></li>
+                    <li><Link to="/process" className={isActive("/process")}>Process</Link></li>
+                    <li><Link to="/gallery" className={isActive("/gallery")}>Gallery</Link></li>
+                    <li><Link to="/contact" className={isActive("/contact")}>Contact Us</Link></li>
+                </ul>
+                <ul className='links'>
+                    <li><Link to="/advantages" className={isActive("/advantages")}>Advantages</Link></li>
+                    <li><Link to="/services" className={isActive("/services")}>Services</Link></li>
+                    <li><Link to="/about" className={isActive("/about")}>About Us</Link></li>
+                    <li><Link to="/order" className={`text-uppercase ${isActive("/order")}`}>Your Order</Link></li>
+                </ul>
+            </nav>
+        </nav>
+    );
+};
 
-export default Navigation
+export default Navigation;

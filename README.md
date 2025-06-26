@@ -14,7 +14,7 @@ This is a React-based test assignment built with **Vite**. The application imple
 
 ### 💻 Desktop Layout (Wide Screens)
 - When the viewport is large enough (suitable for desktop):
-  - The **first two sections** (handled in `HorizontalSections.jsx`) scroll **horizontally** on vertical scroll input.
+  - The **first two sections** (handled in `DynamicWidthSections.jsx`) scroll **horizontally** on vertical scroll input.
   - Custom logic ensures smooth, section-by-section horizontal scrolling.
 
 ### 📱 Mobile/Tablet Layout
@@ -28,7 +28,7 @@ This is a React-based test assignment built with **Vite**. The application imple
 src/
 ├── Components/
 │ ├── Hero.jsx # Fixed hero section
-│ ├── HorizontalSections.jsx # First two horizontal-scroll sections
+│ ├── DynamicWidthSections.jsx # First two horizontal-scroll sections
 │ └── Navigation.jsx # Top navigation component
 ├── Pages/
 │ └── Home.jsx # Main landing page combining all sections

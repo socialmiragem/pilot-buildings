@@ -1,9 +1,9 @@
-import HorizontalSections from "../Components/HorizontalSections"
+import DynamicWidthSections from "../Components/DynamicWidthSections"
 
 const Home = () => {
     return (
         <>
-            <HorizontalSections/>
+            <DynamicWidthSections/>
         </>
     )
 }
