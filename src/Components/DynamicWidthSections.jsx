@@ -71,6 +71,7 @@ const DynamicWidthSections = () => {
 
   return (
     <main className="horizontal-scroll-wrapper" ref={containerRef}>
+      
       <section className="scroll-section" aria-label="Hero Section">
         <Hero currentSection={currentSection} scrollToSection={scrollToSection} />
       </section>

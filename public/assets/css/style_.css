@@ -37,13 +37,13 @@ body {
 .text-light-gray-48 {
   color: var(--color-light-gray-48);
 }
-.horizontal-scroll-wrapper {
+/* .horizontal-scroll-wrapper {
   background-image: url(../images/background/hero.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
   height: 100vh;
-}
+} */
 .filter:hover {
   filter: brightness(0) saturate(100%) invert(69%) sepia(79%) saturate(1000%)
     hue-rotate(345deg) brightness(97%) contrast(92%);
