@@ -6,6 +6,7 @@ import { BuildingTypesContent } from '../../public/assets/data/data';
 const BuildingTypes = ({ currentSection, scrollToSection }) => {
     const [selectedType, setSelectedType] = useState("Magnum");
     const [fade, setFade] = useState(false);
+    const [selectedMaterial, setSelectedMaterial] = useState("Fabric");
 
     const handleTypeChange = (type) => {
         if (type === selectedType) return;
@@ -17,8 +18,11 @@ const BuildingTypes = ({ currentSection, scrollToSection }) => {
         }, 200);
     };
 
+    const handleMaterialChange = (material) => {
+        setSelectedMaterial(material);
+    };
 
-    const { type, text, list, image } = BuildingTypesContent[selectedType];
+    const { type, list } = BuildingTypesContent[selectedType];
     return (
         <>
             <section id="buildingTypes" className='position-relative'>
@@ -32,7 +36,7 @@ const BuildingTypes = ({ currentSection, scrollToSection }) => {
                 <div className="row m-0">
 
                     <div className="col-md-12 second_col d-flex align-items-center flex-column justify-content-md-center justify-content-between position-relative h-100vh">
-                        <div className="px-5 container">
+                        <div className="px-md-5 px-4 container">
                             <h2 className="font-inter fw-semibold">Building Types</h2>
                             <div className="d-flex gap-3 mt-4">
                                 <div className="btn_fabric">
@@ -47,14 +51,14 @@ const BuildingTypes = ({ currentSection, scrollToSection }) => {
                                 </div>
                             </div>
                             <div className="row mt-4">
-                                <div className="col-md-4 d-flex flex-column justify-content-arround pt-0 ps-md-2 ps-0">
+                                <div className="col-md-4 d-flex flex-column justify-content-around pt-0 ps-md-2 ps-0">
                                     <div className="wraper">
                                         <img src="./assets/images/image.svg" alt="" className="img-fluid" />
                                     </div>
                                     <div className="btn_request d-md-flex d-none">
                                         <Link to="/" className="font-inter mb-3">Project Request</Link>
                                     </div>
-                                    <div className="selectMoible d-md-none d-block w-75">
+                                    <div className="selectMobile d-md-none d-block w-75">
                                         <VerticalDataIndicator selectedType={selectedType}
                                             onSelect={handleTypeChange} />
                                     </div>
@@ -75,7 +79,7 @@ const BuildingTypes = ({ currentSection, scrollToSection }) => {
                                         >
                                             <option value="0">Type Usage</option>
                                             <option value="metal">Metal</option>
-                                            <option value="metal">Fabric</option>
+                                            <option value="fabric">Fabric</option>
                                         </select>
                                         <p className="font-inter description">Born from the Latin 'Magnus', meaning 'Great', the Magnum Series delivers unmatched height, heavy-duty strength, and serious snow-load resilience without the big price tag. engineered for big performance</p>
                                         <h6 className="font-inter">Characteristics:</h6>
@@ -99,3 +103,4 @@ const BuildingTypes = ({ currentSection, scrollToSection }) => {
 }
 
 export default BuildingTypes
+
